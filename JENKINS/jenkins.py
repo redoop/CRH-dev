@@ -31,7 +31,7 @@ res = get_workspace()
 
 for i in res:
         service_dir = output_dir+i+'/'
-        subprocess.call(["cp", jenkins_workspace_dir+"JENKINS/install.sh", jenkins_workspace_dir+"JENKINS/Readme.md", service_dir])
+        subprocess.call(["cp", jenkins_workspace_dir+"JENKINS/install.py", jenkins_workspace_dir+"JENKINS/Readme.md", service_dir])
         subprocess.call(['tar', '-zcvf', service_dir+i+'.tar.gz' ,i], shell=False)
 subprocess.call(['tar', '-zcvf', output_dir+'stack'+'.tar.gz' , 'STACK'], shell=False)
 
