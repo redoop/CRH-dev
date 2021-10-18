@@ -8,9 +8,9 @@ def env_check():
         if not os.path.isdir(jenkins_workspace_dir):
                 print("jenkins workspace error!")
                 return -1
-        if subprocess.call(["yum", "install", "-y", "tar"], shell=False) is not 0:
-                print("tar installed failed!")
-                return -1
+        #if subprocess.call(["yum", "install", "-y", "tar"], shell=False) is not 0:
+        #        print("tar installed failed!")
+        #        return -1
         if not os.path.exists(output_dir): os.makedirs(output_dir)
         return 0
 
