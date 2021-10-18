@@ -1,0 +1,5 @@
+[crh]
+name=CRH
+baseurl=http://8.208.94.109/crh-8.3.1.2/
+gpgcheck=0
+enabled=1

@@ -11,8 +11,9 @@ if os.path.isdir(ambari_path):
 		if os.path.isdir(ambari_path+p): res.append(p)
 	latest_version = max(res)
 	if subprocess.call(["tar", "-zxvf", "./"+service, "-C", ambari_path+latest_version+"/services/"]) is 0:
-		print(service + " service installed successfully!")
-		print("please run 'systemctl restart ambari-server' then install the service to cluster through ambari-web page:8080")
+		if subprocess.call(["cp", "./crh.repo", "/etc/yum.repos.d/"]) is 0:
+			print(service + " service installed successfully!")
+			print("please run 'systemctl restart ambari-server' then install the service to cluster through ambari-web page:8080")
 	else:
 		print(service + " service installed failed")
 else:
