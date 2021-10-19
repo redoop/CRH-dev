@@ -111,7 +111,8 @@ class Master(Script):
 
     Execute('echo bin dir ' + params.bin_dir)        
     Execute('echo pid file ' + status_params.flink_pid_file)
-    cmd_open = subprocess.Popen(["hadoop", "classpath"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    #cmd_open = subprocess.Popen(["hadoop", "classpath"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    cmd_open = subprocess.Popen(["/bin/sh", "/var/lib/ambari-server/resources/stacks/CRH/8.3.1.1/services/FLINK/package/scripts/get_evn.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     hadoop_classpath = cmd_open.communicate()[0].strip()
     cmd = format("export HADOOP_CONF_DIR={hadoop_conf_dir}; export HADOOP_CLASSPATH={hadoop_classpath}; {bin_dir}/yarn-session.sh -d -nm {flink_appname} -n {flink_numcontainers} -s {flink_numberoftaskslots} -jm {flink_jobmanager_memory} -tm {flink_container_memory} -qu {flink_queue}")
     if params.flink_streaming:

@@ -52,8 +52,7 @@
     <value>1024</value>
     <description>Memory per TaskManager Container [in MB]</description>
   </property> 
-        
-
+  
   <property>
     <name>setup_prebuilt</name>
     <value>true</value>

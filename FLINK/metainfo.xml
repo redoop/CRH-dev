@@ -29,8 +29,8 @@
                    <package><name>apache-maven-3.2*</name></package>                                           
                 </packages>
               </osSpecific>
-              
             </osSpecifics>
+
       	    <configuration-dependencies>
 	        	<config-type>flink-ambari-config</config-type>      	   
       	    </configuration-dependencies>
@@ -39,6 +39,12 @@
             <requiredServices>
               <service>YARN</service>
             </requiredServices>
+
+	    <property>
+    		<name>yarn.client.failover-proxy-provider</name>
+    		<value>org.apache.hadoop.yarn.client.ConfiguredRMFailoverProxyProvider</value>
+	    </property>
+
         </service>
     </services>
 </metainfo>
